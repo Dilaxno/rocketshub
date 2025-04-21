@@ -1,0 +1,573 @@
+/* Modern Dark Theme CSS for Rocketshub.com */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg-primary: #000000;
+    --bg-secondary: #111111;
+    --accent-color: #ffffff;
+    --accent-hover: #e0e0e0;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --error-color: #ffffff;
+    --success-color: #ffffff;
+    --border-color: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.logo i {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--accent-color);
+    margin-right: 0.75rem;
+}
+
+h1 {
+    font-size: clamp(2rem, 6vw, 3rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+}
+
+.tagline {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    color: var(--text-secondary);
+    font-weight: 300;
+}
+
+/* Main Content */
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+/* For mobile: Bid section first, then domain info */
+@media (max-width: 767px) {
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .bid-section {
+        order: -1; /* Places bid section at the top */
+        margin-bottom: 2rem;
+        position: relative;
+        border-top: 3px solid var(--accent-color);
+    }
+    
+    .bid-section::before {
+        content: "Start Here";
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--accent-color);
+        color: var(--bg-primary);
+        padding: 2px 12px;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+}
+
+/* For desktop: Side by side layout */
+@media (min-width: 768px) {
+    main {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+}
+
+/* Domain Info Section */
+.domain-info {
+    padding: 1.5rem;
+    background-color: var(--bg-secondary);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.domain-info h2 {
+    margin-bottom: 1.25rem;
+    font-size: clamp(1.5rem, 4vw, 1.8rem);
+    color: var(--text-primary);
+}
+
+.domain-info p {
+    margin-bottom: 1.25rem;
+    color: var(--text-secondary);
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+.domain-features {
+    margin-bottom: 1.5rem;
+    padding: 1.25rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border-left: 3px solid var(--accent-color);
+}
+
+.domain-features h3 {
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.industry-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.75rem;
+}
+
+.industry-list li {
+    display: flex;
+    align-items: center;
+    font-size: clamp(0.85rem, 2.3vw, 0.95rem);
+    padding: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.industry-list li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.industry-list i {
+    color: var(--accent-color);
+    margin-right: 0.75rem;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+.industry-value {
+    margin-bottom: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 500px) {
+    .industry-value {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.value-card {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    padding: 1.25rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.value-card i {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: var(--accent-color);
+    margin-bottom: 0.75rem;
+}
+
+.value-card h4 {
+    font-size: clamp(1rem, 2.8vw, 1.2rem);
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.value-card p {
+    font-size: clamp(0.85rem, 2.3vw, 0.95rem);
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.features {
+    list-style: none;
+    margin-top: auto;
+}
+
+.features li {
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+.features i {
+    color: var(--accent-color);
+    margin-right: 0.75rem;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+/* Bid Section */
+.bid-section {
+    padding: 1.5rem;
+    background-color: var(--bg-secondary);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    height: 100%;
+}
+
+.bid-section h2 {
+    margin-bottom: 1.25rem;
+    font-size: clamp(1.5rem, 4vw, 1.8rem);
+}
+
+@media (max-width: 767px) {
+    .bid-section h2 {
+        text-align: center;
+        margin-top: 0.5rem;
+        color: var(--text-primary);
+        font-weight: 700;
+    }
+}
+
+.bid-intro {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+}
+
+.bid-intro p {
+    margin-bottom: 0.75rem;
+    color: var(--text-secondary);
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+.bid-benefits {
+    list-style: none;
+}
+
+.bid-benefits li {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    font-size: clamp(0.85rem, 2.3vw, 0.95rem);
+    color: var(--text-primary);
+}
+
+.bid-benefits i {
+    color: var(--accent-color);
+    margin-right: 0.75rem;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+.optional-tag {
+    font-weight: 400;
+    font-size: clamp(0.75rem, 2vw, 0.85rem);
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-left: 0.25rem;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.currency {
+    position: absolute;
+    left: 1rem;
+    color: var(--text-secondary);
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+input, textarea {
+    padding-left: 2rem;
+}
+
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+    cursor: pointer;
+}
+
+select option {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+input[type="number"] {
+    padding-left: 2rem;
+    -moz-appearance: textfield; /* Firefox */
+}
+
+/* Remove spinner for Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
+    margin-top: 0.5rem;
+    min-height: 1.25rem;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
+}
+
+.submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--accent-color);
+    color: var(--bg-primary);
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+.submit-btn:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.submit-btn i {
+    margin-left: 0.5rem;
+}
+
+/* Footer */
+footer {
+    margin-top: 2.5rem;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+.container {
+    animation: fadeIn 0.8s ease-out;
+}
+
+@media (max-width: 767px) {
+    .bid-section {
+        animation: pulseGlow 2s infinite;
+    }
+}
+
+/* Success Message */
+.success-message {
+    display: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--accent-color);
+    color: var(--text-primary);
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+    text-align: center;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+/* Mobile Optimizations */
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    header {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+    }
+    
+    .domain-info {
+        padding: 1.25rem;
+    }
+    
+    .bid-section {
+        padding: 1.5rem 1.25rem;
+        margin-top: 0.5rem;
+    }
+    
+    .features li {
+        margin-bottom: 0.5rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    /* Simplify the domain info section on mobile */
+    .industry-value {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    
+    .value-card {
+        padding: 1rem;
+    }
+    
+    /* Make the submit button more prominent */
+    .submit-btn {
+        padding: 1rem;
+        margin-top: 0.5rem;
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+    }
+}
+
+/* Tablet Optimizations */
+@media (min-width: 481px) and (max-width: 767px) {
+    .container {
+        padding: 1.25rem;
+    }
+}
+
+/* Landscape Mode Optimization */
+@media (max-height: 500px) and (orientation: landscape) {
+    .container {
+        padding: 1rem;
+    }
+    
+    header {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+    }
+    
+    .domain-info, .bid-section {
+        padding: 1rem;
+    }
+    
+    textarea {
+        min-height: 60px;
+    }
+}
+
+/* High-resolution screens */
+@media (min-width: 1400px) {
+    html {
+        font-size: 18px;
+    }
+    
+    .container {
+        max-width: 1400px;
+    }
+}
+
+/* Dark mode preference support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-primary: #0f1218;
+        --bg-secondary: #1a1f29;
+    }
+}
+
+/* Light mode preference support (with dark theme override) */
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg-primary: #0f1218;
+        --bg-secondary: #1a1f29;
+    }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "rocketshub-domain-sale",
+  "description": "RocketsHub Domain Sale Landing Page",
+  "require": {
+    "php": "^8.0"
+  }
+}
