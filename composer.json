@@ -2,6 +2,12 @@
   "name": "rocketshub-domain-sale",
   "description": "RocketsHub Domain Sale Landing Page",
   "require": {
-    "php": "^8.0"
+    "php": "^8.0",
+    "ext-json": "*"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "chmod -R 755 ."
+    ]
   }
 }
