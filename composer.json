@@ -1,8 +1,8 @@
 {
-  "name": "rocketshub-domain-sale",
+  "name": "dilaxno/rocketshub",
   "description": "RocketsHub Domain Sale Landing Page",
   "require": {
-    "php": "^8.0",
+    "php": "^8.1",
     "ext-json": "*"
   },
   "scripts": {
